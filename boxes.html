@@ -1,0 +1,80 @@
+<style>
+  .parent {
+    position: relative;
+  }
+
+  .child {
+    width: 50px;
+    height: 50px;
+    /*
+      Put the child in the
+      top-right corner…
+    */
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    /*
+      …and then shift it up to
+      sit just outside:
+    */
+    transform: translateY(-100%);
+  }
+
+
+  .parent>* {
+    position: absolute;
+  }
+
+  .abc {
+    background-color: violet;
+    width: 1rem;
+    aspect-ratio: 1;
+    transform: translate(-100%, 0);
+  }
+
+  .light {
+    width: 5rem;
+    aspect-ratio: 1;
+    background-color: lawngreen;
+    transform-origin: 1rem bottom;
+    transform-origin: top 100%;
+    /* transform-origin: left top; */
+    /* https://www.joshwcomeau.com/css/transforms/ */
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .parent:hover .light {
+    transform: rotate(300deg);
+    /* transition: all 1s cubic-bezier(0.19, 1, 0.22, 1); */
+
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: grid;
+    place-content: center;
+  }
+
+  .parent {
+    width: 300px;
+    max-width: 100vw;
+    height: 200px;
+    background: white;
+    background: hsl(270deg 80% 80%);
+  }
+
+  .child {
+    background: deeppink;
+  }
+</style>
+
+<div class="parent">
+  <div class="child"></div>
+  <div class="abc"></div>
+  <div class="light"></div>
+</div>

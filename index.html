@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Araceli Ponce Sanga</title>
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Desarrolladora web, transformando aprendizajes en realidades." />
+  <meta name="keywords" content="desarrollador web tacna, desarrollador web, diseño de páginas web, tacna, página web," />
+  <meta name="author" content="Araceli Ponce Sanga" />
+  <meta name="robots" content="index, follow" /> <!-- Control search engine crawling behavior -->
+
+  <!-- Open Graph Meta Tags (for social media sharing) -->
+  <meta property="og:title" content="Araceli Ponce Sanga" />
+  <meta property="og:description" content="Desarrolladora web." />
+  <meta property="og:image" content="og.png" /> <!-- Image for sharing 1200x630 -->
+  <meta property="og:url" content="https://araceliponce.github.io/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags (for Twitter sharing) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Araceli Ponce Sanga" />
+  <meta name="twitter:description" content="Desarrolladora web." />
+  <meta name="twitter:image" content="og.png" />
+
+  <!-- <link rel="canonical" href="https://araceliponce.github.io/" /> -->
+
+  <!-- <meta http-equiv="Cache-Control" content="max-age=3600"> -->
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJRXW67S50"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MJRXW67S50');
+  </script>
+
+
+  <!-- <link href="node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet" /> -->
+  <!-- <script src="node_modules/gridstack/dist/gridstack-all.js"></script> -->
+
+</head>
+
+<body class="summer">
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+
+
+
+  <script type="module">
+
+    import $ from 'jquery';
+    window.$ = $;
+
+    $(document).ready(function () {
+      mobileMenu.init();
+    });
+
+    var doc = $(document),
+      win = $(window),
+      winHeight = win.height(),
+      winWidth = win.width();
+
+    var viewport = {};
+    viewport.top = $(window).scrollTop();
+    viewport.bottom = viewport.top + $(window).height();
+
+
+
+    const mobileMenu = {
+
+      init: function () {
+
+        // Toggle navigation
+        $('.nav-toggle').on('click', function () {
+          $(this).toggleClass('active');
+          $('.mobile-menu-wrapper').slideToggle().toggleClass('visible');
+          $('body').toggleClass('mobile-menu-visible lock-scroll');
+          // $( '#app' ).toggleClass( 'mobile-menu-visible lock-scroll' );
+          $('.mobile-search, .toggle-mobile-search').removeClass('active');
+        });
+
+        // Hide navigation on resize because i dont know how to use media match in jquery
+        $(window).on('resize', function () {
+          var winWidth = $(window).width();
+          if (winWidth > 576) {
+            $('body').removeClass('mobile-menu-visible lock-scroll');
+            // $( '#app' ).removeClass( 'mobile-menu-visible lock-scroll' );
+            $('.mobile-menu-wrapper').hide().removeClass('visible');
+            $('.nav-toggle').removeClass('active');
+            $('.mobile-search').removeClass('active hide');
+          }
+        });
+
+      },
+
+    }
+
+  </script>
+
+
+
+
+
+
+</body>
+
+</html>

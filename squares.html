@@ -1,0 +1,47 @@
+<body>
+
+  <div class="center">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+  </div>
+
+</body>
+
+
+<style>
+  body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+  }
+
+  .center {
+
+    width: 2rem;
+    aspect-ratio: 1;
+    background: violet;
+    position: relative;
+
+  }
+
+  .center>* {
+    position: absolute;
+    width: 8rem;
+    aspect-ratio: 1;
+    background: yellow;
+    transform: translate(0, -100%);
+    transition: all .7s ease;
+  }
+
+  .center>*:nth-child(3) {
+    background: rebeccapurple;
+    transform: translate(-100%, 0);
+  }
+
+  body:hover .center>*:nth-child(3) {
+    scale: 2;
+    transform-origin: -100% 0%;
+  }
+</style>
